@@ -16,6 +16,8 @@ router.post("/functionup/interns", createIntern)
 //  >>>>>     get college details 
 router.get("/functionup/collegeDetails", getCollegeDetails)
 
+router.all("/*", (req,res)=>  {res.status(400).send({status:false, msg:"Invalid params provided"})})
+
 
 module.exports = router;
 
