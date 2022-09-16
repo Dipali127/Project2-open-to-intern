@@ -10,7 +10,7 @@ const { mongoose } = require("mongoose")
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 
 mongoose.connect("mongodb+srv://BittuMishra:ZsLbBdUnCK.2jta@cluster0.2v1vzde.mongodb.net/Project2?retryWrites=true&w=majority",
@@ -23,6 +23,6 @@ mongoose.connect("mongodb+srv://BittuMishra:ZsLbBdUnCK.2jta@cluster0.2v1vzde.mon
 app.use('/', route);
 
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {  //app.listen() listen the incoming request on specified port.
     console.log('express app started on the port ' + (process.env.PORT || 3000))
 });
