@@ -8,13 +8,10 @@ const Validator = require('../validation/validator');
 const createIntern = async (req, res) => {
     try {
         let internData = req.body;
-        let { name, mobile, email, collegeName, ...rest } = internData;
+        let { name, mobile, email, collegeName} = internData;
 
         // checking that non empty body found
         if (!Validator.checkInputsPresent(internData)) return res.status(400).send({ status: false, msg: "nothing found from body" });
-
-        // checking that nothing given other than required fields
-        if (Validator.checkInputsPresent(rest)) return res.status(404).send({ status: false, msg: "provide required details only => name, mobile, email, collegeName" });
 
 
         if (!Validator.checkString(name)) return res.status(400).send({ status: false, msg: "name required to create new intern ( in string )" });
